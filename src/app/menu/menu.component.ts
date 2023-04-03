@@ -4,7 +4,7 @@ import { DishdetailsComponent } from '../dishdetails/dishdetails.component';
 import {DISHES} from'../shared/dishes';
 
 @Component({
-  selector: 'test-menu',
+  selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
