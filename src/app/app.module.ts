@@ -24,6 +24,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 
 import {DishService} from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
 
 
@@ -38,7 +39,6 @@ import { PromotionService } from './services/promotion.service';
     ContactComponent,
     HomeComponent,
     AboutComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,7 @@ import { PromotionService } from './services/promotion.service';
     MatCardModule,
     RouterModule,
   ],
-  providers: [DishService,{provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService],
+  providers: [DishService,{provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,],
 
   bootstrap: [AppComponent],
   exports:[AppRoutingModule,HomeComponent,],
