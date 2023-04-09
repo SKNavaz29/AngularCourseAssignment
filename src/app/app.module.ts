@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import 'hammerjs';
 import { DishdetailsComponent } from './dishdetails/dishdetails.component';
@@ -25,6 +26,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {DishService} from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -39,6 +41,7 @@ import { LeaderService } from './services/leader.service';
     ContactComponent,
     HomeComponent,
     AboutComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +54,13 @@ import { LeaderService } from './services/leader.service';
     MatButtonModule,
     MatCardModule,
     RouterModule,
+    MatDialogModule,
   ],
   providers: [DishService,{provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,],
+  entryComponents:[
+    LoginComponent
 
+  ],
   bootstrap: [AppComponent],
   exports:[AppRoutingModule,HomeComponent,],
 })
