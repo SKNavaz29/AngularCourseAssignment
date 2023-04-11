@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms'; 
 
 import 'hammerjs';
 import { DishdetailsComponent } from './dishdetails/dishdetails.component';
@@ -55,6 +59,10 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     RouterModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule,
   ],
   providers: [DishService,{provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,],
   entryComponents:[
