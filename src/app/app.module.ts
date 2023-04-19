@@ -30,6 +30,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SharedComponent } from './shared/shared.component';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import {DishService} from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
@@ -70,6 +71,7 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [DishService,{provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,],
   entryComponents:[

@@ -5,6 +5,7 @@
      fxLayoutAlign.gt-md="space-around center"
      fxLayoutGap="10px">
 
+
 <mat-card *ngIf="dish" fxFlex>
   <mat-card-header>
     <div mat-card-avatar></div>
@@ -19,7 +20,12 @@
   </mat-card-content>
 </mat-card>
 
-<mat-card *ngIf="promotion" fxFlex>
+<div [hidden]="dish">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+
+<div *ngIf="promotion" fxFlex>
+<mat-card >
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>
@@ -32,7 +38,12 @@
     </p>
   </mat-card-content>
 </mat-card>
-<mat-card *ngIf="leader" fxFlex>
+</div>
+<div [hidden]="promotion">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
+<div *ngIf="leader" fxFlex>
+<mat-card>
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>
@@ -45,5 +56,9 @@
     </p>
   </mat-card-content>
 </mat-card>
+</div>
+<div [hidden]="leader">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
 
 </div>

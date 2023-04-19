@@ -10,13 +10,14 @@ import { LEADERS } from '../shared/leaders';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  Leaders: leader[]=LEADERS;
+  Leaders: leader[];
   leader!: leader;
   constructor(private LeaderService: LeaderService,private route:ActivatedRoute, private location:Location) { }
 ngOnInit() {
-    let id = this.route.snapshot.params['id'];
-    this.leader=this.LeaderService.getLeader(id);
+  this.LeaderService.getLeaders()
+  .subscribe(Leaders => this.Leaders = Leaders);
 }
+
 goBack():void{
   this.location.back();
 }
