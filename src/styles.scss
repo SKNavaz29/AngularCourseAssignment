@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import 'variables';
-@import '../node_modules/font-awesome/scss/font-awesome';
+@import './node_modules/font-awesome/scss/font-awesome';
 
 
 $lt-gray: #ddd;
@@ -46,4 +46,27 @@ body {
 
 .flex-spacer {
 flex: 1 1 auto;
+}
+
+.mat-mdc-slider {
+  --mdc-slider-handle-color: #641457;
+  --mdc-slider-focus-handle-color: #143864;
+  --mdc-slider-hover-handle-color: #4871a3;
+  --mdc-slider-active-track-color: #143864;
+  --mdc-slider-inactive-track-color: #f48225;
+  --mdc-slider-with-tick-marks-active-container-color: #b88538;
+  --mdc-slider-with-tick-marks-inactive-container-color: #ce5d37;
+  --mat-mdc-slider-ripple-color: #dfa700;
+  --mat-mdc-slider-hover-ripple-color: #3861b80d;
+  --mat-mdc-slider-focus-ripple-color: #3861b833;
+
+  --mdc-slider-label-container-color: #dcc7c7;
+  --mdc-slider-label-label-text-color: black;
+  --mdc-slider-disabled-handle-color: #143864;
+  --mdc-slider-disabled-active-track-color: #143864;
+  --mdc-slider-disabled-inactive-track-color: #143864;
+  --mdc-slider-with-tick-marks-disabled-container-color: #143864;
+  --mat-mdc-slider-value-indicator-opacity: 0.9;
+--mat-mdc-slider-value:$background-light
+
 }
