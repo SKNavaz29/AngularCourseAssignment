@@ -38,8 +38,8 @@ import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
-
-
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { baseURL } from './shared/baseurl';
     HomeComponent,
     AboutComponent,
     LoginComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +80,7 @@ import { baseURL } from './shared/baseurl';
 
   ],
   providers: [DishService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,ProcessHTTPMsgService,
     {provide:'BaseURL',useValue:baseURL}],
   entryComponents:[
     LoginComponent

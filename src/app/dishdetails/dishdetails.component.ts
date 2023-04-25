@@ -8,11 +8,25 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../shared/comments';
 import { NgForm } from '@angular/forms';
 import { baseURL } from '../shared/baseurl';
+import {trigger, state,style,animate,transition, animation} from '@angular/animations';
+import { visibility } from '../animations/app.animation';
+import { flyInOut,expand } from '../animations/app.animation';
+
+
 @Component({
   selector: 'app-dishdetails',
   templateUrl: './dishdetails.component.html',
-  styleUrls: ['./dishdetails.component.scss']
+  styleUrls: ['./dishdetails.component.scss'],
   
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+  animations:[
+    visibility(),
+    flyInOut(),
+    expand()
+  ]
 })
 export class DishdetailsComponent implements OnInit {
     
@@ -22,8 +36,9 @@ export class DishdetailsComponent implements OnInit {
     next:string;
     comment:Comment;
     commentForm:FormGroup;
-    
-    
+    errmess:String;
+    dishcopy:Dish;
+    visibility = 'shown';
 
 
 
@@ -45,8 +60,10 @@ export class DishdetailsComponent implements OnInit {
   
     ngOnInit() {
       this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
-      this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
-      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+      this.route.params
+      .pipe(switchMap((params: Params) => {this.visibility = 'hidden'; return this.dishService.getDish(params['id'])}))
+      .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility='shown' },
+        errmess => this.errmess = <any>errmess );
     }
 
     setPrevNext(dishId: string) {
@@ -115,7 +132,12 @@ export class DishdetailsComponent implements OnInit {
    onSubmit() {
       this.comment = this.commentForm.value;
     this.comment.date = new Date().toISOString();
-    this.dish.comments.push(this.comment);
+    this.dishcopy.comments.push(this.comment);
+    this.dishService.putDish(this.dishcopy)
+      .subscribe(dish => {
+        this.dish = dish; this.dishcopy = dish;
+      },
+      errmess => { this.dish = null; this.dishcopy = null; this.errmess = <any>errmess; });
     console.log(this.comment);
       this.commentForm.reset({
         author: '',
