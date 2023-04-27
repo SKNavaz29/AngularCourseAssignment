@@ -17,7 +17,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import 'hammerjs';
 import { DishdetailsComponent } from './dishdetails/dishdetails.component';
 import { HeaderComponent } from './header/header.component';
@@ -35,6 +34,7 @@ import {MatSlider, MatSliderModule} from '@angular/material/slider';
 import {DishService} from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { FeedbackService } from './services/feedback.service';
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
@@ -80,7 +80,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 
   ],
   providers: [DishService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,ProcessHTTPMsgService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},PromotionService,LeaderService,FeedbackService,ProcessHTTPMsgService,
     {provide:'BaseURL',useValue:baseURL}],
   entryComponents:[
     LoginComponent
